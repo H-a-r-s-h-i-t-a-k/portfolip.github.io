@@ -1,0 +1,112 @@
+
+ body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; 
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.visible {
+     opacity: 1;
+     transform: translateY(0);
+}
+
+
+.project-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.project-card:hover {
+    transform: translateY(-8px) scale(1.07); /* Slightly lift and scale up */
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.825), 0 8px 10px -6px rgba(0, 0, 0, 0.641);
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3b82f6; /* Tailwind blue-500 */
+    transition: width 0.3s ease;
+}
+.nav-link:hover {
+    color: #3b82f6;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero button hover */
+.hero-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Particle Canvas Styling */
+#particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind content */
+}
+
+
+#hero .container {
+    position: relative; /* Ensure content is above canvas */
+    z-index: 1;
+}
+
+/* Scroll-to-top Button */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #13971a; /* blue-500 */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#scrollToTopBtn:hover {
+    background-color: #eb2577; /* blue-600 */
+    transform: scale(1.1);
+}
+
+
+#scrollToTopBtn.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent); /* gray-300 */
+    margin: 4rem auto; /* Adjust spacing as needed */
+    width: 80%;
+    max-width: 600px;
+}
